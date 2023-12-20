@@ -1,0 +1,44 @@
+name: Deploy to Vercel
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 17,18,19,20,21,22,23 * * 1-5'
+    - cron: '0 0,1,2 * * 2-6'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download timestamp of last run
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: since
+          path: data
+          workflow: deploy.yml
+          workflow_conclusion: success
+      - name: Set timestamps
+        id: timestamps
+        shell: bash
+        run: |
+          echo "::set-output name=since::$(cat data/since)"
+          node -e 'console.log(Date.now())' > data/since
+          echo "::set-output name=now::$(cat data/since)"
+      - name: Trigger vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod --build-env ANNOUNCE_SINCE=${{ steps.timestamps.outputs.since }} --build-env ANNOUNCE_NOW=${{ steps.timestamps.outputs.now }}'
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          scope: ${{ secrets.VERCEL_TEAM_ID }}
+      - name: Store timestamp of this run
+        uses: actions/upload-artifact@v2
+        with:
+          name: since
+          path: data/since

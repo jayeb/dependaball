@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Player 1",
+    "photo": "player1.gif",
+    "active": true
+  },
+  {
+    "name": "Player 2",
+    "photo": "player2.gif",
+    "active": true
+  }
+]

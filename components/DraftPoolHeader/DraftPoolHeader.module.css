@@ -1,0 +1,94 @@
+.container {
+  position: sticky;
+  top: 0;
+  padding: 0;
+  z-index: 10;
+
+  /* Inverted colors */
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+.content {
+  display: grid;
+  grid-template-areas: 'title count';
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 40px;
+  gap: var(--padding);
+  align-items: center;
+
+  padding: var(--padding);
+}
+
+.title {
+  grid-area: title;
+  margin: 0;
+}
+.title-backLink {
+  text-decoration: none;
+
+  cursor: pointer;
+}
+.title-backLink::before {
+  content: '🏉';
+}
+.title-backLink:hover::before {
+  content: '🔙';
+  filter: invert(1);
+}
+
+.count {
+  grid-area: count;
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  font: var(--type-body);
+}
+.count::before {
+  content: '•';
+  margin-right: 0.5em;
+}
+.count > select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  padding-right: 1.5em;
+  margin: 0;
+  width: auto;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.count::after {
+  content: '';
+  width: 1px;
+  height: 1px;
+  margin-left: -1em;
+  margin-top: 3px;
+
+  /* Inverted colors */
+  background-color: var(--color-bg);
+  background-clip: content-box;
+  border: 4px solid transparent;
+  border-top-color: var(--color-bg);
+}
+
+.divider {
+  /* Inverted colors */
+  background-color: var(--color-fg);
+  --this-texture-color: var(--color-bg);
+}
+
+@media (max-width: 480px) {
+  .content {
+    grid-template-areas: 'title' 'count';
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+  }
+  .count::before {
+    content: none;
+  }
+}
+

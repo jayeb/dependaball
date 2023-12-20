@@ -1,0 +1,24 @@
+.divider {
+  --this-height: 16px;
+  --this-texture-color: var(--color-fg);
+
+  height: var(--this-height);
+  margin: 0;
+
+  background: 
+    radial-gradient(
+        circle at 2.5px 0.5px,
+        var(--this-texture-color),
+        var(--this-texture-color) 0.5px,
+        transparent 0.5px
+      )
+    0 0 / 6px 6px,
+    radial-gradient(
+        circle at 5.5px 3.5px,
+        var(--this-texture-color),
+        var(--this-texture-color) 0.5px,
+        transparent 0.5px
+      )
+    0 0 / 6px 6px;
+  border: none;
+}

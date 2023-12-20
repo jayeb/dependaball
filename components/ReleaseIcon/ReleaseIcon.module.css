@@ -1,0 +1,82 @@
+.container {
+  position: relative;
+  width: 0;
+  height: 0;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+
+  --this-icon-size: 16px;
+  --this-icon-color: var(--color-fg);
+
+  --this-tooltip-color: var(--color-fg);
+}
+
+.container[data-bump='major'] {
+  --this-icon-color: #A347FF;
+  --this-tooltip-color: #531293;
+}
+.container[data-bump='minor'] {
+  --this-icon-color: #00CC66;
+  --this-tooltip-color: #007A3D;
+}
+.container[data-bump='patch'] {
+  --this-icon-color: #FFB700;
+  --this-tooltip-color: #996E00;
+}
+.container[data-player] {
+  --this-icon-color: var(--this-playerColor-light);
+  --this-tooltip-color: var(--this-playerColor-dark);
+}
+
+.icon {
+  flex: 0 0 auto;
+  position: relative;
+
+  width: var(--this-icon-size);
+  height: var(--this-icon-size);
+  margin-bottom: calc(var(--this-icon-size) / -2);
+
+  fill: var(--this-icon-color);
+}
+
+.tooltip {
+  flex: 0 0 auto;
+  display: none;
+
+  position: relative;
+  z-index: 10;
+
+  width: auto;
+  padding: 8px;
+
+  background: var(--this-tooltip-color);
+  color: var(--color-bg);
+
+  font: var(--type-small);
+  text-align: center;
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+.container:hover .tooltip {
+  display: block;
+}
+
+.tooltip-packageName,
+.tooltip-version,
+.tooltip-date {
+  margin: 0;
+}
+
+.tooltip-packageName {
+  font-weight: 700;
+}
+
+.tooltip-date {
+  font: var(--type-micro);
+}

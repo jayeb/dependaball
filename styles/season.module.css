@@ -1,0 +1,9 @@
+.divider {
+  /* 2px margin ensures the pattern lines up correctly */
+  margin-top: 2px;
+}
+
+.section {
+  padding-top: 98px;
+  margin-top: -98px;
+}

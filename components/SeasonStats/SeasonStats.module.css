@@ -1,0 +1,10 @@
+.container {
+  padding: var(--padding);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(288px, 100%), 1fr));
+  gap: var(--padding);
+}
+.group > p {
+  margin: 0;
+}

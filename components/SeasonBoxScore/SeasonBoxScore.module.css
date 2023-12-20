@@ -1,0 +1,62 @@
+.container {
+  display: grid;
+  grid-template-areas: 'rankings timeline .';
+  grid-template-columns: 192px minmax(0, 1fr) 48px;
+  gap: var(--padding);
+
+  padding: var(--padding);
+}
+
+.rankings {
+  grid-area: rankings;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rankings-player {
+  display: flex;
+  gap: 8px;
+}
+
+.rankings-player-name {
+  flex: 1 1 auto;
+  margin: 0;
+
+  display: flex;
+  gap: 8px;
+
+  font: var(--type-body);
+  font-weight: 700;
+}
+.rankings-player-name::after {
+  content: ' ';
+  flex: 1 1 auto;
+  align-self: center;
+
+  height: 2px;
+  background: var(--this-playerColor-light);
+}
+
+.rankings-player-score {
+  margin: 0;
+}
+
+.timeline {
+  grid-area: timeline;
+  align-self: end;
+}
+
+@media (max-width: 640px) {
+  .container {
+
+    grid-template-areas: 'rankings' 'timeline';
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+  }
+}

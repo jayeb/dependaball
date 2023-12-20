@@ -1,0 +1,12 @@
+.divider {
+  /* 2px margin ensures the pattern lines up correctly */
+  margin-top: 2px;
+}
+
+.copySection {
+  margin: 0 auto;
+  max-width: 75ch;
+}
+.copySection > p {
+  padding: 0 var(--padding);
+}

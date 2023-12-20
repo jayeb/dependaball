@@ -1,0 +1,5 @@
+.container {
+  --this-color: currentColor;
+
+  border-bottom: 2px solid var(--this-playerColor-light);
+}

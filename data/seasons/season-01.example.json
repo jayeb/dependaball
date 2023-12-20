@@ -1,0 +1,54 @@
+{
+  "name": "Season Example",
+  "pointValues": {
+    "major": 5,
+    "minor": 3,
+    "patch": 1
+  },
+  "start": "2023-08-09T19:03:09Z",
+  "end": "2023-08-30T19:00:00Z",
+  "players": [
+    {
+      "name": "Player 1",
+      "draftees": [
+        "@aws-sdk/client-s3",
+        "@types/dateformat",
+        "@types/lodash",
+        "@types/react",
+        "chalk",
+        "classnames"
+      ]
+    },
+    {
+      "name": "Player 2",
+      "draftees": [
+        "dateformat",
+        "dotenv",
+        "eslint",
+        "eslint-config-next",
+        "inquirer",
+        "lodash"
+      ]
+    },
+  ],
+  "draftPool": [
+    "@aws-sdk/client-s3",
+    "@types/dateformat",
+    "@types/lodash",
+    "@types/react",
+    "chalk",
+    "classnames",
+    "dateformat",
+    "dotenv",
+    "eslint",
+    "eslint-config-next",
+    "inquirer",
+    "lodash",
+    "next",
+    "node-fetch",
+    "react",
+    "react-dom",
+    "semver",
+    "typescript"
+  ]
+}

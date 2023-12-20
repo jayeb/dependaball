@@ -1,0 +1,20 @@
+[
+    "@aws-sdk/client-s3",
+    "@types/dateformat",
+    "@types/lodash",
+    "@types/react",
+    "chalk",
+    "classnames",
+    "dateformat",
+    "dotenv",
+    "eslint",
+    "eslint-config-next",
+    "inquirer",
+    "lodash",
+    "next",
+    "node-fetch",
+    "react",
+    "react-dom",
+    "semver",
+    "typescript"
+]

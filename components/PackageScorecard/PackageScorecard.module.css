@@ -1,0 +1,78 @@
+.content {
+  display: grid;
+  grid-template-areas: 'metadata releases points';
+  grid-template-columns: 192px minmax(0, 1fr) 48px;
+  grid-template-rows: auto;
+  gap: var(--padding);
+
+  padding: var(--padding);
+}
+
+.metadata {
+  grid-area: metadata;
+  align-self: start;
+  padding: 0;
+}
+.metadata-packageName {
+  margin: 0;
+
+  font: var(--type-body);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.metadata-extras {
+  font: var(--type-small);
+}
+.metadata-extras > * {
+  margin: 0;
+}
+
+.releases {
+  grid-area: releases;
+  width: 100%;
+  height: 100%;
+}
+
+.points {
+  grid-area: points;
+
+  align-self: center;
+  padding: 0 var(--padding);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.points-value {
+  display: block;
+
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 700;
+}
+.points-label {
+  display: block;
+  font: var(--type-small);
+}
+
+@media (max-width: 640px) {
+  .content {
+    grid-template-areas: 'metadata points' 'releases releases';
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+
+  .metadata {
+    align-self: end;
+  }
+  .metadata-packageName {
+    white-space: normal;
+  }
+
+  .points {
+    align-self: start;
+  }
+  .points-label {
+    display: none;
+  }
+}

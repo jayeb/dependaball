@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  --color-bg: #F9F3E4;
+  --color-fg: #1A1A14;
+  --color-tick: #1A1A141A;
+
+  /* Orange */
+  --color-player1-light: #FF5F00;
+  --color-player1-dark: #993900;
+
+  /* Blue */
+  --color-player2-light: #175CE5;
+  --color-player2-dark: #0E3788;
+
+  /* Yellow */
+  --color-player3-light: #FFB700;
+  --color-player3-dark: #996E00;
+
+  /* Green */
+  --color-player4-light: #00CC66;
+  --color-player4-dark: #007A3D;
+
+  /* Purple */
+  --color-player5-light: #A347FF;
+  --color-player5-dark: #531293;
+
+  /* Seafoam */
+  --color-player6-light: #15D5D5;
+  --color-player6-dark: #0D8080;
+
+  /* Red */
+  --color-player7-light: #E83030;
+  --color-player7-dark: #B81414;
+
+  /* Slate */
+  --color-player8-light: #5578AA;
+  --color-player8-dark: #1F2B3D;
+
+  --fontFamily: 'Roboto Mono', monospace;
+
+  --type-header: 700 24px / 32px var(--fontFamily);
+  --type-body: 400 16px / 24px var(--fontFamily);
+  --type-small: 400 11px / 16px var(--fontFamily);
+  --type-micro: 400 9px / 16px var(--fontFamily);
+
+  --padding: 16px;
+}
+
+@media (max-width: 64px) {
+  :root {
+    --padding: 12px;
+  }
+}
+
+html {
+  padding: 0;
+  margin: 0;
+
+  scroll-behavior: smooth;
+
+  background: var(--color-bg);
+  color:  var(--color-fg);
+}
+body {
+  padding: 0;
+  margin: 0;
+
+  font: var(--type-body);
+}
+
+h1,
+h2,
+h3 {
+  font: var(--type-header);
+}
+
+h4,
+h5,
+h6 {
+  font: var(--type-body);
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  padding: var(--padding);
+}
+
+header > * {
+  margin: 0;
+}
+header > * + * {
+  margin-top: 4px;
+}
+
+[data-player='player-1'] {
+  --this-playerColor-light: var(--color-player1-light);
+  --this-playerColor-dark: var(--color-player1-dark);
+}
+[data-player='player-2'] {
+  --this-playerColor-light: var(--color-player2-light);
+  --this-playerColor-dark: var(--color-player2-dark);
+}
+[data-player='player-3'] {
+  --this-playerColor-light: var(--color-player3-light);
+  --this-playerColor-dark: var(--color-player3-dark);
+}
+[data-player='player-4'] {
+  --this-playerColor-light: var(--color-player4-light);
+  --this-playerColor-dark: var(--color-player4-dark);
+}
+[data-player='player-5'] {
+  --this-playerColor-light: var(--color-player5-light);
+  --this-playerColor-dark: var(--color-player5-dark);
+}
+[data-player='player-6'] {
+  --this-playerColor-light: var(--color-player6-light);
+  --this-playerColor-dark: var(--color-player6-dark);
+}
+[data-player='player-7'] {
+  --this-playerColor-light: var(--color-player7-light);
+  --this-playerColor-dark: var(--color-player7-dark);
+}
+[data-player='player-8'] {
+  --this-playerColor-light: var(--color-player8-light);
+  --this-playerColor-dark: var(--color-player8-dark);
+}

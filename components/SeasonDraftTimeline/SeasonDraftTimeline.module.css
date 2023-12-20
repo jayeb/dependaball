@@ -1,0 +1,195 @@
+.container {
+  --this-pathBorder: 2px solid var(--color-fg);
+
+  position: relative;
+  padding: 0 16px 16px;
+  overflow: hidden;
+}
+
+.round {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.round::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  border-bottom: var(--this-pathBorder);
+  border-left: var(--this-pathBorder);
+}
+.round:last-child::before {
+  border-left: none;
+}
+
+.round-title {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 32px;
+  padding-top: 16px;
+  padding-left: 16px;
+  margin: 0;
+  box-sizing: content-box;
+
+  font: var(--type-body);
+  font-weight: 700;
+}
+.round:first-child .round-title {
+  padding-top: 0;
+}
+
+.round-picks {
+  display: grid;
+  grid-template-columns: repeat(var(--this-players), minmax(0, 1fr));
+  gap: 8px;
+  align-items: end;
+
+  list-style: none;
+  padding: 8px 16px 2px;
+  margin: 0;
+}
+
+.pick {
+  position: relative;
+  margin-bottom: 16px;
+
+  padding: 8px;
+
+  box-shadow: inset 0 0 0 1px var(--this-playerColor-light);
+
+  font: var(--type-small);
+
+  word-break: break-word;
+}
+.round:first-child .pick::before {
+  content: ' ';
+
+  position: absolute;
+  top: -9999vh;
+  bottom: -9999vh;
+  left: 0;
+
+  width: 1px;
+
+  background-image: linear-gradient(
+    to right,
+    var(--color-tick),
+    var(--color-tick) 0.5px,
+    transparent 0.5px
+  );
+  background-size: 1px 100%;
+  background-position: left;
+}
+.pick::after {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 0;
+  height: 0;
+
+  border: 6px solid var(--this-playerColor-light);
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+
+/* Reverse layout for some rounds */
+.round[data-reverse] .round-title {
+  justify-content: flex-end;
+
+  padding-left: 0;
+  padding-right: 14px;
+
+  border-left: none;
+  border-right: var(--this-pathBorder);
+}
+.round[data-reverse]::before {
+  border-left: none;
+  border-right: var(--this-pathBorder);
+}
+.round[data-reverse] .pick::after {
+  left: auto;
+  right: 0;
+
+  border-left-color: transparent;
+  border-right-color: var(--this-playerColor-light);
+}
+
+@media (max-width: 720px) {
+  .round[data-reverse]:last-child::before {
+    border-bottom: none;
+  }
+
+  .round-picks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-right: 0;
+    padding-left: 2px;
+    margin-bottom: 16px;
+  }
+  .round[data-reverse] .round-picks {
+    flex-direction: column-reverse;
+    align-items: end;
+
+    padding-right: 2px;
+    padding-left: 0;
+  }
+
+  .pick {
+    margin-bottom: 0;
+    margin-left: 16px;
+  }
+  .round[data-reverse] .pick {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+  .pick::before,
+  .round:first-child .pick::before {
+    content: ' ';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -9999vh;
+    right: -9999vh;
+
+    width: unset;
+    height: 1px;
+
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-tick),
+      var(--color-tick) 0.5px,
+      transparent 0.5px
+    );
+    background-size: 100% 1px;
+    background-position: left;
+  }
+  .pick::after {
+    top: 0;
+    right: 100%;
+    left: auto;
+
+    border-left-color: transparent;
+    border-right-color: var(--this-playerColor-light);
+  }
+  .round[data-reverse] .pick::after {
+    right: auto;
+    left: 100%;
+
+    border-right-color: transparent;
+    border-left-color: var(--this-playerColor-light);
+  }
+}
+

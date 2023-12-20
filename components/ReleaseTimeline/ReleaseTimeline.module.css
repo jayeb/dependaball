@@ -1,0 +1,55 @@
+.container {
+  --this-totalUnits: 1;
+  --this-heightPerUnit: clamp(4px, calc(33vh / var(--this-totalUnits)), 12px);
+
+  --this-path-color: var(--color-fg);
+
+  display: grid;
+  align-items: flex-end;
+
+  padding-top: 1px;
+  box-sizing: content-box;
+
+  background-image: linear-gradient(
+    to top,
+    var(--color-tick),
+    var(--color-tick) 0.5px,
+    transparent 0.5px
+  );
+  background-size: 100% var(--this-heightPerUnit);
+  background-position: bottom;
+}
+
+.paths {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+  display: block;
+  width: 100%;
+  height: max(1px, calc(var(--this-totalUnits)) * var(--this-heightPerUnit));
+
+  fill: none;
+  stroke-width: 1px;
+  overflow: visible;
+}
+
+.paths-graphLine {
+  stroke: var(--this-path-color);
+}
+
+.paths-graphLine[data-player] {
+  --this-path-color: var(--this-playerColor-light);
+}
+
+.paths-tickMark {
+  stroke-width: 0.5px;
+  stroke: var(--this-tick-color);
+}
+
+.annotations {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+
+  position: relative;
+  width: 100%;
+  height: max(1px, calc(var(--this-totalUnits)) * var(--this-heightPerUnit));
+}
